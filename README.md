@@ -1,1 +1,0 @@
-# CrowFunding-Typescript
