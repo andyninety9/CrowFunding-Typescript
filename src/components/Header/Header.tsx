@@ -1,6 +1,6 @@
-import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import Avatar from '@mui/material/Avatar'
 import SearchIcon from '@mui/icons-material/Search'
+import LanguageIcon from '@mui/icons-material/Language'
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
       <div className='container'>
         <div className='mt-2 grid grid-cols-12 items-center gap-4'>
           <div className='col-span-1'>
-            <div className='flex justify-center'>
+            <div className='flex w-10 justify-center md:w-auto'>
               <svg width='52' height='52' viewBox='0 0 52 52' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <rect width='52' height='52' rx='10' fill='#2C2F32' />
                 <path
@@ -46,11 +46,11 @@ export default function Header() {
               </svg>
             </div>
           </div>
-          <div className='col-span-3'>
-            <form>
+          <div className='col-span-3 translate-x-5 md:translate-x-[-5]'>
+            <form className=''>
               <div className='relative flex h-[40px] w-[217px] md:h-[52px] md:w-[458px]'>
                 <input
-                  placeholder='Do fundrise now'
+                  placeholder='Shipping worldwide'
                   type='text'
                   className='flex-grow rounded-full px-5 py-2 shadow-md outline-none'
                 />
@@ -66,15 +66,22 @@ export default function Header() {
           </div>
           <div className='col-span-8 flex h-full items-center justify-end gap-3'>
             <div className='mr-4 hidden h-full items-center gap-2 lg:flex'>
-              <TrendingUpIcon
+              <LanguageIcon
                 sx={{
                   color: 'GrayText'
                 }}
               />
               <select className='h-full bg-transparent text-[16px] font-semibold text-text2 outline-none'>
-                <option disabled>Fundrising for</option>
+                <option value=''>Vietnamese</option>
+                <option value=''>English</option>
               </select>
             </div>
+            <button className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'>
+              <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
+                <span className='text-[13px] font-bold'>5</span>
+              </div>
+              Checkout cart
+            </button>
             <div className=''>
               <Avatar />
             </div>

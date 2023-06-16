@@ -51,7 +51,7 @@ export default function SideNav() {
         </Link>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
@@ -62,7 +62,7 @@ export default function SideNav() {
         </Link>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
@@ -76,7 +76,7 @@ export default function SideNav() {
         </Link>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <g clipPath='url(#clip0_1071_25469)'>
@@ -104,7 +104,7 @@ export default function SideNav() {
         </Link>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <circle cx='12' cy='9' r='3' stroke='#A2A2A8' strokeWidth='2' strokeLinecap='round' />
@@ -119,7 +119,7 @@ export default function SideNav() {
         </Link>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
@@ -137,7 +137,7 @@ export default function SideNav() {
       <div className='mt-auto'>
         <Link
           to={path.home}
-          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg '
+          className='mb-5 flex h-[48px] w-[48px] cursor-pointer items-center justify-center rounded-lg hover:bg-text3/30 '
         >
           <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path
