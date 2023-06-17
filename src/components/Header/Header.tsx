@@ -3,24 +3,10 @@ import SearchIcon from '@mui/icons-material/Search'
 import LanguageIcon from '@mui/icons-material/Language'
 import { Link } from 'react-router-dom'
 import path from 'src/constants/path'
-import { flip, offset, shift, useFloating } from '@floating-ui/react'
-import { Fragment, useState } from 'react'
+import Popover from '../Popover'
+import { Fragment } from 'react'
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-  const { refs, floatingStyles } = useFloating({
-    placement: 'bottom-end',
-    middleware: [offset(20), flip(), shift()]
-  })
-
-  const handleShowPopover = () => {
-    setOpen(true)
-  }
-
-  const handleHidePopover = () => {
-    setOpen(false)
-  }
-
   return (
     <div className='overflow-hidden bg-whiteSoft pb-2 pt-2'>
       <div className='container'>
@@ -70,7 +56,7 @@ export default function Header() {
                 <input
                   placeholder='Shipping worldwide'
                   type='text'
-                  className='flex-grow rounded-full px-5 py-2 shadow-md outline-none'
+                  className='md:text-[16px] flex-grow rounded-full px-5 py-2 text-[12px] shadow-md outline-none'
                 />
                 <button className='absolute right-1 top-[50%] h-[30px] w-[60px] flex-shrink-0 translate-y-[-50%] cursor-pointer rounded-[20px] bg-primary hover:bg-primary/80 md:right-2 md:h-[40px]'>
                   <SearchIcon
@@ -94,42 +80,50 @@ export default function Header() {
                 <option value=''>English</option>
               </select>
             </div>
-
-            <button
-              onMouseEnter={handleShowPopover}
-              onMouseLeave={handleHidePopover}
-              ref={refs.setReference}
-              className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'
-            >
-              <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
-                <span className='text-[13px] font-bold'>5</span>
-              </div>
-              Checkout cart
-            </button>
-            {open && (
-              <div
-                ref={refs.setFloating}
-                className='flex flex-col rounded-md bg-white p-3 shadow-lg '
-                style={floatingStyles}
-              >
-                <div className='mb-4 text-[12px] text-text3'>Carts</div>
-                <div className='flex items-center justify-between gap-5 text-[14px]'>
-                  <div className='flex-shrink-0'>
-                    <img
-                      className='h-10 w-10 object-cover'
-                      src='https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'
-                      alt=''
-                    />
+            <Popover
+              className='mr-4 hidden md:block'
+              renderPopover={
+                <Fragment>
+                  <div className='mb-4 text-[12px] text-text3'>Recently</div>
+                  <div className='flex items-center justify-between gap-5 rounded-md p-2 text-[14px] hover:bg-text3/20'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-10 w-10 rounded-md object-cover'
+                        src='https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'
+                        alt=''
+                      />
+                    </div>
+                    <div className='max-w-[200px] flex-grow truncate'>Ipad Pro M1</div>
+                    <div className='font-semibold text-primary'>20.000.000</div>
                   </div>
-                  <div className='max-w-[200px] flex-grow truncate'>Ipad Pro M1</div>
-                  <div className='font-semibold text-primary'>20.000.000</div>
-                </div>
-              </div>
-            )}
+                </Fragment>
+              }
+            >
+              <button className='rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90'>
+                Your cart
+              </button>
+            </Popover>
 
-            <div className=''>
+            <Popover
+              renderPopover={
+                <div className='flex flex-col'>
+                  <Link
+                    to={path.signIn}
+                    className='min-w-[90px] rounded-md px-2 py-3 text-center text-[13px] hover:bg-text3/30'
+                  >
+                    Sign in
+                  </Link>
+                  <Link
+                    to={path.register}
+                    className='min-w-[90px] rounded-md px-2 py-3 text-center text-[13px] hover:bg-text3/30'
+                  >
+                    Register
+                  </Link>
+                </div>
+              }
+            >
               <Avatar />
-            </div>
+            </Popover>
           </div>
         </div>
       </div>

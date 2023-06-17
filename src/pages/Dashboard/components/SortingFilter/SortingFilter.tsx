@@ -1,10 +1,12 @@
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined'
 import { Link } from 'react-router-dom'
 import path from 'src/constants/path'
+import ExpandCircleDownOutlinedIcon from '@mui/icons-material/ExpandCircleDownOutlined'
+import Popover from 'src/components/Popover'
 
 export default function SortingFilter() {
   return (
-    <div className='flex w-full flex-wrap items-center justify-between rounded-xl bg-white px-3 py-3 shadow-md md:justify-end'>
+    <div className='z-10 flex w-full flex-wrap items-center justify-between rounded-xl bg-white px-3 py-3 shadow-md md:justify-end'>
       <div className='mr-2 flex items-end md:mr-auto'>
         <span className='text-[14px] font-light text-black'>Review</span>
         <div className='ml-2 flex gap-1'>
@@ -46,6 +48,47 @@ export default function SortingFilter() {
         <option value=''>Lowest to highest</option>
         <option value=''>Highest to lowest</option>
       </select>
+
+      <Popover
+        className='z-[1000]'
+        renderPopover={
+          <div className='flex flex-col'>
+            <div className='mb-4 w-full text-[14px] font-semibold'>Categories</div>
+            <div className='flex gap-5'>
+              <button className='min-w-[90px] rounded-md border border-primary px-3 py-2 text-[12px] hover:bg-primary hover:text-white'>
+                Phones
+              </button>
+              <button className='min-w-[90px] rounded-md border border-primary px-3 py-2 text-[12px] hover:bg-primary hover:text-white'>
+                Watch
+              </button>
+              <button className='min-w-[90px] rounded-md border border-primary px-3 py-2 text-[12px] hover:bg-primary hover:text-white'>
+                Tee
+              </button>
+              <div className='flex items-center gap-4'>
+                <div className='text-[14px] font-semibold'>From</div>
+                <input
+                  type='text'
+                  className='w-[70px] rounded-md border border-primary bg-transparent px-3 py-2 outline-none'
+                />
+                <div className=''>To</div>
+                <input
+                  type='text'
+                  className='w-[70px] rounded-md border border-primary bg-transparent px-3 py-2 outline-none'
+                />
+              </div>
+            </div>
+            <button className='w-full bg-primary px-3 py-2 text-[14px] text-white mt-5 rounded-md hover:bg-primary/80'>Apply</button>
+          </div>
+        }
+      >
+        <ExpandCircleDownOutlinedIcon
+          sx={{
+            marginLeft: '8px',
+            color: '#4acd8d',
+            cursor: 'pointer'
+          }}
+        />
+      </Popover>
     </div>
   )
 }

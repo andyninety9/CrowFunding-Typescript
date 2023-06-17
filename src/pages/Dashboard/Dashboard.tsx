@@ -26,6 +26,7 @@ export default function Dashboard() {
                 </div>
                 <div className='mt-5 w-full flex-col'>
                   <SortingFilter />
+
                   <ProductList />
                   <div className='mt-5 flex items-center justify-center'>
                     <Pagination count={10} variant='outlined' color='primary' />

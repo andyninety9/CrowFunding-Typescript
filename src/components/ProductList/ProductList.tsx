@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 export default function ProductList() {
   return (
     <Fragment>
-      <div className='mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+      <div className='mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 z-0'>
         {Array(20)
           .fill(0)
           .map((_, index) => (

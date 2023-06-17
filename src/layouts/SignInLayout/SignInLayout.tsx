@@ -1,5 +1,9 @@
-import React from 'react'
+import SignIn from 'src/pages/SignIn'
 
 export default function SignInLayout() {
-  return <div>SignInLayout</div>
+  return (
+    <div>
+      <SignIn />
+    </div>
+  )
 }

@@ -1,18 +1,19 @@
+import Checkbox from '@mui/material/Checkbox'
 import { Link } from 'react-router-dom'
 import path from 'src/constants/path'
 
-export default function SignIn() {
+export default function Register() {
   return (
     <div className='flex h-[100vh] w-[100vw] items-center justify-center bg-[#d2f2e3]'>
       <div className='container'>
-        <form className='justify-center-center flex h-[511px] w-[327px] flex-col rounded-[10px] bg-white px-10 py-12 shadow-sm md:h-[556px] md:w-[556px]'>
+        <form className='justify-center-center flex w-[327px] flex-col rounded-[10px] bg-white px-10 py-12 shadow-sm  md:w-[556px]'>
           <div className='mb-[10px] flex w-full items-center justify-center text-[20px] font-semibold'>
-            Welcome Back!
+            Sign up
           </div>
           <div className='mb-[10px] flex w-full items-center justify-center text-[11px] font-normal text-text3'>
             Already have an account?{' '}
-            <Link to={path.register} className='ml-1 text-primary underline'>
-              Sign up
+            <Link to={path.signIn} className='ml-1 text-primary underline'>
+              Sign in
             </Link>
           </div>
           <button className='mb-5 mt-5 flex h-[45px] w-full items-center justify-center gap-5 rounded-md border'>
@@ -34,10 +35,24 @@ export default function SignIn() {
                 fill='#1565C0'
               />
             </svg>
-            <span className='text-[16px] font-semibold text-text3'>Sign in with Google</span>
+            <span className='text-[16px] font-semibold text-text3'>Sign up with Google</span>
           </button>
+          <div className='flex w-full items-center justify-center py-3 text-[14px] text-text3'>
+            Or sign up with email
+          </div>
           <div className='flex flex-col'>
-            <label htmlFor='email' className='mb-3 text-[14px]'>
+            <label htmlFor='fullName' className='mb-3 text-[14px]'>
+              Full Name
+            </label>
+            <input
+              type='fullName'
+              name='fullName'
+              className='h-[52px] w-full rounded-md border bg-white px-3 py-2 outline-none'
+              placeholder='Andy Mai'
+            />
+          </div>
+          <div className='flex flex-col'>
+            <label htmlFor='email' className='mb-3 mt-5 text-[14px]'>
               Email
             </label>
             <input
@@ -61,6 +76,13 @@ export default function SignIn() {
           <Link to={path.home} className='my-3 flex justify-end text-[14px] text-primary'>
             Forgot password
           </Link>
+          <div className='flex w-full items-center justify-start gap-2 py-3'>
+            <Checkbox sx={{ fontSize: 28 }} />
+            <span className='text-[14px]'>
+              I agree to the <span className='text-secondary'>Tearms of Use</span> and have read and understand the{' '}
+              <span className='text-secondary'>Privacy policy</span>.
+            </span>
+          </div>
           <button className='mt-auto w-full rounded-md bg-primary py-3 font-semibold text-white hover:bg-primary/80'>
             Sign in
           </button>
