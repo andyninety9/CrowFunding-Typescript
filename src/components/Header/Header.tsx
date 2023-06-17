@@ -95,34 +95,37 @@ export default function Header() {
               </select>
             </div>
 
-            <div onMouseEnter={handleShowPopover} onMouseLeave={handleHidePopover} ref={refs.setReference}>
-              <button className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'>
-                <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
-                  <span className='text-[13px] font-bold'>5</span>
-                </div>
-                Checkout cart
-              </button>
-              {open && (
-                <div
-                  ref={refs.setFloating}
-                  className='flex flex-col rounded-md bg-white p-3 shadow-lg'
-                  style={floatingStyles}
-                >
-                  <div className='mb-4 text-[12px] text-text3'>Carts</div>
-                  <div className='flex items-center justify-between gap-5 text-[14px]'>
-                    <div className='flex-shrink-0'>
-                      <img
-                        className='h-10 w-10 object-cover'
-                        src='https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'
-                        alt=''
-                      />
-                    </div>
-                    <div className='max-w-[200px] flex-grow truncate'>Ipad Pro M1</div>
-                    <div className='font-semibold text-primary'>20.000.000</div>
+            <button
+              onMouseEnter={handleShowPopover}
+              onMouseLeave={handleHidePopover}
+              ref={refs.setReference}
+              className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'
+            >
+              <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
+                <span className='text-[13px] font-bold'>5</span>
+              </div>
+              Checkout cart
+            </button>
+            {open && (
+              <div
+                ref={refs.setFloating}
+                className='flex flex-col rounded-md bg-white p-3 shadow-lg '
+                style={floatingStyles}
+              >
+                <div className='mb-4 text-[12px] text-text3'>Carts</div>
+                <div className='flex items-center justify-between gap-5 text-[14px]'>
+                  <div className='flex-shrink-0'>
+                    <img
+                      className='h-10 w-10 object-cover'
+                      src='https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'
+                      alt=''
+                    />
                   </div>
+                  <div className='max-w-[200px] flex-grow truncate'>Ipad Pro M1</div>
+                  <div className='font-semibold text-primary'>20.000.000</div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
             <div className=''>
               <Avatar />
