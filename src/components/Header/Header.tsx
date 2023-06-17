@@ -1,14 +1,32 @@
 import Avatar from '@mui/material/Avatar'
 import SearchIcon from '@mui/icons-material/Search'
 import LanguageIcon from '@mui/icons-material/Language'
+import { Link } from 'react-router-dom'
+import path from 'src/constants/path'
+import { flip, offset, shift, useFloating } from '@floating-ui/react'
+import { Fragment, useState } from 'react'
 
 export default function Header() {
+  const [open, setOpen] = useState(false)
+  const { refs, floatingStyles } = useFloating({
+    placement: 'bottom-end',
+    middleware: [offset(20), flip(), shift()]
+  })
+
+  const handleShowPopover = () => {
+    setOpen(true)
+  }
+
+  const handleHidePopover = () => {
+    setOpen(false)
+  }
+
   return (
     <div className='overflow-hidden bg-whiteSoft pb-2 pt-2'>
       <div className='container'>
         <div className='mt-2 grid grid-cols-12 items-center gap-4'>
           <div className='col-span-1'>
-            <div className='flex w-10 justify-center md:w-auto'>
+            <Link to={path.home} className='flex w-10 justify-center md:w-auto'>
               <svg width='52' height='52' viewBox='0 0 52 52' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <rect width='52' height='52' rx='10' fill='#2C2F32' />
                 <path
@@ -44,7 +62,7 @@ export default function Header() {
                   </linearGradient>
                 </defs>
               </svg>
-            </div>
+            </Link>
           </div>
           <div className='col-span-3 translate-x-5 md:translate-x-[-5]'>
             <form className=''>
@@ -76,12 +94,36 @@ export default function Header() {
                 <option value=''>English</option>
               </select>
             </div>
-            <button className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'>
-              <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
-                <span className='text-[13px] font-bold'>5</span>
-              </div>
-              Checkout cart
-            </button>
+
+            <div onMouseEnter={handleShowPopover} onMouseLeave={handleHidePopover} ref={refs.setReference}>
+              <button className='relative mr-4 hidden h-[40px] items-center justify-center rounded-md bg-secondary px-3 py-2 font-semibold text-white hover:bg-secondary/90 md:flex'>
+                <div className='absolute right-0 top-0 flex h-5 w-5 translate-x-[50%] translate-y-[-50%] items-center justify-center rounded-full bg-primary'>
+                  <span className='text-[13px] font-bold'>5</span>
+                </div>
+                Checkout cart
+              </button>
+              {open && (
+                <div
+                  ref={refs.setFloating}
+                  className='flex flex-col rounded-md bg-white p-3 shadow-lg'
+                  style={floatingStyles}
+                >
+                  <div className='mb-4 text-[12px] text-text3'>Carts</div>
+                  <div className='flex items-center justify-between gap-5 text-[14px]'>
+                    <div className='flex-shrink-0'>
+                      <img
+                        className='h-10 w-10 object-cover'
+                        src='https://images.unsplash.com/photo-1666919643134-d97687c1826c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80'
+                        alt=''
+                      />
+                    </div>
+                    <div className='max-w-[200px] flex-grow truncate'>Ipad Pro M1</div>
+                    <div className='font-semibold text-primary'>20.000.000</div>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div className=''>
               <Avatar />
             </div>
