@@ -56,7 +56,7 @@ export default function Header() {
                 <input
                   placeholder='Shipping worldwide'
                   type='text'
-                  className='md:text-[16px] flex-grow rounded-full px-5 py-2 text-[12px] shadow-md outline-none'
+                  className='flex-grow rounded-full px-5 py-2 text-[12px] shadow-md outline-none md:text-[16px]'
                 />
                 <button className='absolute right-1 top-[50%] h-[30px] w-[60px] flex-shrink-0 translate-y-[-50%] cursor-pointer rounded-[20px] bg-primary hover:bg-primary/80 md:right-2 md:h-[40px]'>
                   <SearchIcon
@@ -69,17 +69,22 @@ export default function Header() {
             </form>
           </div>
           <div className='col-span-8 flex h-full items-center justify-end gap-3'>
-            <div className='mr-4 hidden h-full items-center gap-2 lg:flex'>
+            <Popover
+              renderPopover={
+                <div className='h-full bg-transparent text-[16px] font-semibold text-text2 outline-none'>
+                  <button className='px-3 py-2 text-[13px] hover:bg-text3/30 '>Vietnamese</button>
+                  <button className='px-3 py-2 text-[13px] hover:bg-text3/30 '>English</button>
+                </div>
+              }
+              className='mr-4 hidden h-full items-center gap-2 lg:flex'
+            >
               <LanguageIcon
                 sx={{
-                  color: 'GrayText'
+                  color: 'GrayText',
+                  opacity: 0.8
                 }}
               />
-              <select className='h-full bg-transparent text-[16px] font-semibold text-text2 outline-none'>
-                <option value=''>Vietnamese</option>
-                <option value=''>English</option>
-              </select>
-            </div>
+            </Popover>
             <Popover
               className='mr-4 hidden md:block'
               renderPopover={

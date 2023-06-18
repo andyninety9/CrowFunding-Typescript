@@ -85,7 +85,10 @@ export default function SortingFilter() {
           sx={{
             marginLeft: '8px',
             color: '#4acd8d',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            ':hover': {
+              opacity: 0.8
+            }
           }}
         />
       </Popover>

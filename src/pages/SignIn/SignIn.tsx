@@ -6,9 +6,9 @@ export default function SignIn() {
     <div className='flex h-[100vh] w-[100vw] items-center justify-center bg-[#d2f2e3]'>
       <div className='container'>
         <form className='justify-center-center flex h-[511px] w-[327px] flex-col rounded-[10px] bg-white px-10 py-12 shadow-sm md:h-[556px] md:w-[556px]'>
-          <div className='mb-[10px] flex w-full items-center justify-center text-[20px] font-semibold'>
+          <Link to={path.home} className='mb-[10px] flex w-full items-center justify-center text-[20px] font-semibold'>
             Welcome Back!
-          </div>
+          </Link>
           <div className='mb-[10px] flex w-full items-center justify-center text-[11px] font-normal text-text3'>
             Already have an account?{' '}
             <Link to={path.register} className='ml-1 text-primary underline'>
